@@ -1,0 +1,41 @@
+{
+    "facts": {
+        "ordinateur ne demarre pas": false,
+        "pas de affichage": false,
+        "ordinateur surchauffe": false
+    },
+    "rules": {
+        "panne dalimentation": {
+            "conditions": [
+                "ordinateur ne demarre pas"
+            ],
+            "conclusion": "panne dalimentation"
+        },
+        "panne carte graphique": {
+            "conditions": [
+                "pas de affichage"
+            ],
+            "conclusion": "panne carte graphique"
+        },
+        "panne surchauffe": {
+            "conditions": [
+                "ordinateur surchauffe"
+            ],
+            "conclusion": "panne surchauffe"
+        },
+        "panne disque dur": {
+            "conditions": [
+                "ordinateur ne demarre pas",
+                "pas de affichage"
+            ],
+            "conclusion": "panne disque dur"
+        },
+        "panne memoire vive": {
+            "conditions": [
+                "ordinateur ne demarre pas",
+                "ordinateur surchauffe"
+            ],
+            "conclusion": "panne memoire vive"
+        }
+    }
+}

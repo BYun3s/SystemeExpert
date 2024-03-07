@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Système Expert</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">        <h1 class="text-4xl font-bold text-center mb-4">Système Expert</h1>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <ul class="mb-4">
+               <ul class="flex justify-center space-x-8">
+                <li><a href="/" class="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out">Accueil</a></li>
+                <li><a href="admin" class="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out">Expert</a></li>
+            </ul>
+            </ul>
+            <form action="/resultat" method="post">
+                <label for="facts" class="block">Choisir les faits</label>
+                <select id="facts" name="facts" class="w-full p-2 border border-gray-300 rounded-md mb-4" multiple>
+                    {% for fact, value in facts.items() %}
+                    <option value="{{ fact }}">{{ fact }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Soumettre" class="block w-full p-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

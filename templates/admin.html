@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Expert</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">Espace Expert</h1>
+        <div class="bg-white p-8 rounded-lg shadow-md flex flex-col items-center justify-center">
+            <form method="post" action="logout" class="mb-4">
+                <input type="submit" value="Déconnexion" class="bg-gray-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+            </form>
+            <ul class="flex justify-center space-x-8">
+                <li><a href="/" class="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out">Accueil</a></li>
+                <li><a href="admin" class="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out">Expert</a></li>
+            </ul>
+        </div>
+
+
+        <div class="bg-white p-8 rounded-lg shadow-md mt-8">
+            <h1 class="text-2xl font-semibold mb-2">Facts</h1>
+            <ul class="mb-4 list-disc">
+                {% for fact, value in facts.items() %}
+                <li>{{ fact }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md mt-8">
+            <h1 class="text-2xl font-semibold mb-2">Rules</h1>
+            <table class="w-full mb-4">
+                <tbody>
+                    {% for rule, details in rules.items() %}
+                    <tr>
+                        <td class="border px-4 py-2"><b>{{ rule }}</b>
+                            <ul >
+                                {% for condition in details.conditions %}
+                                <li><p> &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;{{ condition }}</p></li>
+                                {% endfor %}
+                            </ul>                        </td>
+                        <td class="border px-4 py-2">
+                            <form method="post" action="/delete_rule/{{ rule }}">
+                                <input type="submit" value="Supprimer" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md mt-8">
+            <h2 class="text-xl font-semibold mb-2">Ajouter une règle</h2>
+            <form method="post" action="/add_rule" class="mb-4">
+                <label for="rule_name" class="block mb-2">Nom de la règle:</label>
+                <input type="text" id="rule_name" name="rule_name" class="w-full p-2 border border-gray-300 rounded-md mb-2">
+                
+                <label for="conditions" class="block mb-2">Conditions:</label>
+                <input type="text" id="conditions" name="conditions" class="w-full p-2 border border-gray-300 rounded-md mb-2">
+                
+                <label for="conclusion" class="block mb-2">Conclusion:</label>
+                <input type="text" id="conclusion" name="conclusion" class="w-full p-2 border border-gray-300 rounded-md mb-2">
+                
+                <input type="submit" value="Ajouter" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
