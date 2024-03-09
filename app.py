@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 
-from MInf import *
+from MoteurInference import *
 import json
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 ADMIN_USERNAME = 'admin'
-ADMIN_PASSWORD = ''
+ADMIN_PASSWORD = 'admin'
 
 class User(UserMixin):
     pass
