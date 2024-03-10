@@ -49,9 +49,3 @@ class ExpertSystem:
                 data = json.load(file)
                 for fact_name, fact_value in data["facts"].items():
                     self.facts[fact_name] = Fact(fact_name, fact_value)
-
-# Créer une nouvelle instance de ExpertSystem
-
-
-# Charger les faits et les règles depuis le fichier JSON
-# expert_system.load_data()
